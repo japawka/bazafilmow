@@ -1,0 +1,67 @@
+{% extends 'glowny.html' %}
+{% load bootstrap %}
+
+
+
+    <title>{% block tytul %} Szczegóły filmu{% endblock %}</title>
+
+{% block strona %}
+    <div class="card" style="width: 32rem; float: left; margin-right: 1rem;">
+            <div class="card" style="width: 30rem;">
+              <div class="card-body">
+                <h5 class="card-title">{{ film }}</h5>
+                <p class="card-text">{{ film.opis }}</p>
+              </div>
+            </div>
+
+
+            <div class="card" style="width: 30rem;">
+              <div class="card-body">
+                <h5 class="card-title">Data premiery</h5>
+                <p class="card-text">{{ film.premiera }}</p>
+              </div>
+            </div>
+
+            <div class="card" style="width: 30rem;">
+              <div class="card-body">
+                <h5 class="card-title">Obsada</h5>
+                  {% for actor in actors %}
+                <p class="card-text">{{ actor }}</p>
+                  {% endfor %}
+
+              </div>
+            </div>
+       </div>
+
+    <div class="card" style="width: 32rem; float: left; margin-right: 1rem;">
+        <div class="card" style="width: 30rem;">
+          <div class="card-body">
+            <h5 class="card-title">Plakat</h5>
+            <p><img src="/media/{{film.plakat}}"
+                                      style="width:350px;"></p>
+          </div>
+        </div>
+
+
+
+            <div class="card" style="width: 30rem;">
+              <div class="card-body">
+                <h5 class="card-title">Ocena Imdb</h5>
+                <p class="card-text">{{ film.imdb_rating }}</p>
+              </div>
+            </div>
+
+            <div class="card" style="width: 30rem;">
+              <div class="card-body">
+
+               <a href="{% url 'wszystkie_filmy' %}" class="btn btn-success">
+                   Powrót <i class="fas fa-sign-in-alt"></i></a>
+              </div>
+            </div>
+
+
+
+
+</div>
+
+{% endblock %}

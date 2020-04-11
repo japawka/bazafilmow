@@ -1,0 +1,8 @@
+pip install django-bootstrap-form
+pip install Pillow
+install djangorestframework
+STATIC_ROOT = os.path.join(BASE_DIR, 'moje_static')
+
+from dj_static import Cling
+
+Cling
